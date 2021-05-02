@@ -30,6 +30,7 @@ public class BootStrapData implements CommandLineRunner {
         book.getAuthors().add(hazem);
 
         Publisher publisher = new Publisher("Al-Mansoura", "gaza" ,"none", "+972");
+        Publisher publisher2 = new Publisher("Al-Mansoura", "gaza" ,"none", "+972");
 
         authorRepository.save(hazem);
         bookRepository.save(book);
@@ -38,6 +39,10 @@ public class BootStrapData implements CommandLineRunner {
         Book springBook = new Book("j2ee development", "6546546");
         hazem.getBooks().add(book);
         book.getAuthors().add(hazem);
+
+        book.setPublisher(publisher);
+        publisher.getBooks().add(springBook);
+        publisher.getBooks().add(book);
 
         authorRepository.save(rod);
         bookRepository.save(springBook);
